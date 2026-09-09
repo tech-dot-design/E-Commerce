@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEase — Curated Everyday Goods</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+
+    <header class="header">
+        <a href="index.html" class="logo">
+            ShopEase<span class="logo-dot">.</span>
+        </a>
+
+        <nav class="navbar">
+            <a href="index.html" class="active">Home</a>
+            <a href="#products">Products</a>
+            <a href="orders.html">Orders</a>
+            <a href="profile.html">My Profile</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="login-btn" type="button" onclick="openModal('login')">
+                Login
+            </button>
+            <button class="register-btn" type="button" onclick="openModal('register')">
+                Register
+            </button>
+        </div>
+    </header>
+
+    <!-- =========================
+         HERO BANNER SECTION
+    ========================== -->
+    <section class="hero">
+
+        <div class="hero-container">
+
+            <div class="hero-content">
+                <div class="hero-badge">
+                    AUTUMN ATELIER 2026 &bull; EXCLUSIVE CURATION
+                </div>
+
+                <h1 class="hero-headline">
+                    Curated Goods<br>
+                    <span class="highlight-text-wrapper">
+                        <span class="highlight-text" id="heroDynamicWord">Crafted for Living</span>
+                    </span>
+                </h1>
+
+                <p class="hero-desc">
+                    Explore an artisan-selected collection of <strong>studio-grade acoustics</strong>,
+                    <strong>engineered footwear</strong>, and <strong>warm tactile essentials</strong> designed for
+                    modern elegance and lasting comfort.
+                </p>
+
+                <!-- Value Proposition Highlights -->
+                <div class="hero-value-chips">
+                    <div class="hero-chip">
+                        <span class="chip-icon">⚡</span>
+                        <span>Express Dispatch</span>
+                    </div>
+                    <div class="hero-chip">
+                        <span class="chip-icon">✦</span>
+                        <span>2-Year Warranty</span>
+                    </div>
+                    <div class="hero-chip">
+                        <span class="chip-icon">★</span>
+                        <span>100% Inspected</span>
+                    </div>
+                </div>
+
+                <div class="hero-actions">
+                    <a href="#products" class="shop-btn primary-btn">Explore Collection</a>
+                    <a href="orders.html" class="shop-btn ghost-btn">Track Order</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-visual-card" id="heroVisualCard">
+                    <div class="hero-image-wrap">
+                        <img id="heroBannerImg"
+                            src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=1000&q=80"
+                            alt="Featured Bestseller" class="hero-main-img">
+                    </div>
+
+                    <div class="hero-product-preview" id="heroBannerPreview">
+                        <div class="preview-info" id="heroBannerInfo">
+                            <span class="preview-category" id="heroBannerCat">Studio Audio</span>
+                            <h3 class="preview-title" id="heroBannerTitle">Wireless Noise-Cancelling</h3>
+                            <div class="preview-price-row">
+                                <span class="preview-price" id="heroBannerPrice">₹1,299</span>
+                                <span class="preview-original" id="heroBannerOriginal">₹2,499</span>
+                                <span class="preview-discount" id="heroBannerDiscount">-48%</span>
+                            </div>
+                        </div>
+                        <a href="product.html?id=1" class="preview-btn" id="heroBannerLink"
+                            aria-label="View Product">&rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =========================
+         STORE ANNOUNCEMENT BAR (Easy to Study)
+    ========================== -->
+    <div class="announcement-bar">
+        <div class="announcement-inner">
+            <p class="announcement-text">
+                Special Offer: Complimentary express delivery on all orders over ₹999 &bull; Use code
+                <strong>WELCOME10</strong> for 10% off your first order
+            </p>
+        </div>
+    </div>
+
+
+    <!-- =========================
+         PRODUCT CATALOG
+    ========================== -->
+    <section class="catalog" id="products">
+        <div class="section-heading">
+            <div>
+                <span class="section-badge">Curated Collection</span>
+                <h2>Handpicked Essentials</h2>
+                <p class="section-subtitle">Crafted with precision, delivered with care.</p>
+            </div>
+
+            <!-- Filters -->
+            <div class="catalog-controls">
+                <select id="sortProducts" aria-label="Sort products">
+                    <option value="default">Sort By: Featured</option>
+                    <option value="low-high">Price: Low to High</option>
+                    <option value="high-low">Price: High to Low</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- =========================
+             PRODUCTS GRID
+        ========================== -->
+        <div class="product-grid"><p style="grid-column: 1/-1; text-align:center; padding: 40px; color:#666;">Loading products...</p></div>
+    </section>
+
+    <!-- =========================
+         FLOATING CART
+    ========================== -->
+    <a href="cart.html" class="floating-cart" aria-label="Shopping Cart">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-dot"></span>
+    </a>
+
+    <!-- =========================
+         SITE FOOTER (Basic)
+    ========================== -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 ShopEase. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="#products">Products</a>
+                <a href="orders.html">Orders</a>
+                <a href="cart.html">Cart</a>
+                <a href="profile.html">Profile</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =========================
+         LOGIN / REGISTER MODAL
+    ========================== -->
+    <div class="modal-overlay" id="authModal">
+        <div class="auth-modal">
+            <button class="close-modal" type="button" onclick="closeModal()" aria-label="Close modal">
+                &times;
+            </button>
+
+            <!-- LOGIN -->
+            <div id="loginForm">
+                <h2>Welcome Back</h2>
+                <p>Access your curated account and orders</p>
+
+                <form action="javascript:void(0);" method="POST" onsubmit="return false;">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" name="email" placeholder="name@example.com" required>
+
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" name="password" placeholder="Enter your password"
+                        required>
+
+                    <button type="submit" class="auth-submit">
+                        Sign In
+                    </button>
+                </form>
+
+                <div class="switch-form">
+                    Don't have an account?
+                    <button type="button" onclick="openModal('register')">Create one</button>
+                </div>
+            </div>
+
+            <!-- REGISTRATION -->
+            <div id="registerForm">
+                <h2>Create Account</h2>
+                <p>Join ShopEase for exclusive access and fast checkout</p>
+
+                <form action="javascript:void(0);" method="POST" onsubmit="return false;">
+                    <label for="registerName">Full Name</label>
+                    <input type="text" id="registerName" name="name" placeholder="Alex Morgan" required>
+
+                    <label for="registerEmail">Email Address</label>
+                    <input type="email" id="registerEmail" name="email" placeholder="name@example.com" required>
+
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" name="password" placeholder="Create a strong password"
+                        required>
+
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirm_password"
+                        placeholder="Confirm your password" required>
+
+                    <button type="submit" class="auth-submit">
+                        Create Account
+                    </button>
+                </form>
+
+                <div class="switch-form">
+                    Already have an account?
+                    <button type="button" onclick="openModal('login')">Sign in</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/images.js"></script>
+    <script src="js/api-client.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

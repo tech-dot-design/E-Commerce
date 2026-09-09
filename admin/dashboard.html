@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         ADMIN HEADER
+    ========================== -->
+
+    <header class="admin-header">
+        <div class="logo">ShopEase</div>
+        
+        <a href="../index.html" class="admin-home">View Store</a>
+    </header>
+
+    <!-- =========================
+         ADMIN LAYOUT
+    ========================== -->
+
+    <div class="admin-layout">
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+
+        <aside class="admin-sidebar">
+
+            <div class="sidebar-heading">ADMIN PANEL</div>
+
+            <nav class="admin-nav">
+                <a href="dashboard.html" class="active"><span>📊</span>
+                    Dashboard</a>
+
+                <a href="products.html"><span>📦</span>
+                    Product Management</a>
+
+                <a href="orders.html"><span>📑</span>
+                    Order Management</a>
+
+                <a href="customers.html"><span>👥</span>
+                    Customer Overview</a>
+
+            </nav>
+
+        </aside>
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+
+        <main class="admin-main">
+
+            <div class="admin-page-heading">
+                <h1>Dashboard</h1>
+                <p>Manage your e-commerce store from one place.</p>
+            </div>
+
+            <!-- =========================
+                 STATISTICS
+            ========================== -->
+
+            <section class="admin-stats">
+
+                <div class="admin-stat-card">
+                    <div class="stat-icon">📦</div>
+                    <div>
+                        <span>Total Products</span>
+                        <strong>24</strong>
+                    </div>
+                </div>
+
+                <div class="admin-stat-card">
+                    <div class="stat-icon">🛒</div>
+                    <div>
+                        <span>Total Orders</span>
+                        <strong>58</strong>
+                    </div>
+                </div>
+
+                <div class="admin-stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div>
+                        <span>Customers</span>
+                        <strong>36</strong>
+                    </div>
+                </div>
+
+                <div class="admin-stat-card">
+                    <div class="stat-icon">₹</div>
+                    <div>
+                        <span>Total Sales</span>
+                        <strong>₹48,650</strong>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- =========================
+                 QUICK MANAGEMENT
+            ========================== -->
+
+            <section class="admin-management">
+
+                <div class="admin-section-heading">
+                        <h2>Store Management</h2>
+                </div>
+
+                <div class="management-grid">
+
+                    <a href="products.html" class="management-card">
+                        <div class="management-icon">📦</div>
+                        <h3>Product Management</h3>
+                        <p>Add, edit and delete products from your store inventory.</p>
+                        <span>Manage Products →</span>
+                    </a>
+
+                    <a href="orders.html" class="management-card">
+                        <div class="management-icon">🛒</div>
+                        <h3>Order Management</h3>
+                        <p>View incoming orders and update their status.</p>
+                        <span>Manage Orders →</span>
+                    </a>
+
+                    <a href="customers.html" class="management-card"> 
+                        <div class="management-icon">👥</div>
+                        <h3>Customer Overview</h3>
+                        <p>View and monitor registered customer accounts.</p>
+                        <span>View Customers →</span>
+                    </a>
+
+                </div>
+
+            </section>
+
+            <!-- =========================
+                 RECENT ORDERS
+            ========================== -->
+
+            <section class="recent-orders"><div class="admin-section-heading"><div><p class="section-label">RECENT ACTIVITY</p><h2>Recent Orders</h2></div><a href="orders.html" class="admin-view-all">View All</a></div><div class="admin-table-container"><table class="admin-table"><thead><tr><th>Order ID</th><th>Customer</th><th>Date</th><th>Total</th><th>Status</th></tr></thead><tbody><tr><td colspan="5" style="text-align:center; padding:15px; color:#666;">Loading recent orders...</td></tr></tbody>
+                    </table>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="../js/api-client.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

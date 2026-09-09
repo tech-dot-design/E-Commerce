@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEase - Order Management</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <!-- ADMIN HEADER -->
+    <header class="admin-header">
+        <div class="logo">
+            ShopEase
+        </div>
+        
+        <a href="../index.html" class="admin-home">
+            View Store
+        </a>
+        
+</header>
+
+    <!-- ADMIN LAYOUT -->
+    <div class="admin-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-heading">
+                ADMIN PANEL
+            </div>
+            <nav class="admin-nav">
+                <a href="dashboard.html">
+                    <span>📊</span>
+                    Dashboard
+                </a>
+                <a href="products.html">
+                    <span>📦</span>
+                    Product Management
+                </a>
+                <a href="orders.html" class="active">
+                    <span>📑</span>
+                    Order Management
+                </a>
+                <a href="customers.html">
+                    <span>👥</span>
+                    Customer Overview
+                </a>
+            </nav>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="admin-main">
+
+            <!-- PAGE HEADING -->
+            <div class="admin-page-heading">
+                <div>
+                    <p class="section-label">
+                        ADMIN PANEL
+                    </p>
+                    <h1>
+                        Order Management
+                    </h1>
+                    <p>
+                        View incoming orders and update their status.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ORDERS TABLE -->
+            <section class="order-management-section">
+                <div class="admin-section-heading">
+                    <div>
+                        <p class="section-label">
+                            ORDERS
+                        </p>
+                        <h2>
+                            All Orders
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="admin-table-container">
+                    <table class="admin-table order-admin-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Date</th>
+                                <th>Items</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Update</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="7" style="text-align:center; padding:20px; color:#666;">
+                                    Loading orders...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="../js/api-client.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

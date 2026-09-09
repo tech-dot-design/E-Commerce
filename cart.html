@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShopEase - Shopping Cart</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="header">
+
+        <a href="index.html" class="logo">ShopEase<span class="logo-dot">.</span></a>
+
+       <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="product.html">Products</a>
+            <a href="orders.html">Orders</a>
+            <a href="profile.html" class="active">My Profile</a>
+        </nav>
+
+        <div class="header-actions">
+
+            <button
+                class="login-btn"
+                type="button"
+                onclick="openModal('login')">
+                Login
+            </button>
+
+            <button
+                class="register-btn"
+                type="button"
+                onclick="openModal('register')">
+                Register
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         CART PAGE
+    ========================== -->
+
+    <main class="cart-page">
+
+        <div class="cart-container">
+
+            <div class="cart-heading">
+
+                <p class="section-label">
+                    YOUR SHOPPING BAG
+                </p>
+
+                <h1>
+                    Shopping Cart
+                </h1>
+
+            </div>
+
+
+            <div class="cart-content">
+
+                <!-- =========================
+                     CART ITEMS
+                ========================== -->
+
+                <section class="cart-items"><p style="text-align:center; padding: 40px; color:#666;">Loading cart...</p></section>
+
+
+                <!-- =========================
+                     CART SUMMARY
+                ========================== -->
+
+                <aside class="cart-summary">
+
+                    <h2>
+                        Order Summary
+                    </h2>
+
+                    <div class="summary-row">
+
+                        <span>
+                            Subtotal
+                        </span>
+
+                        <span id="cartSubtotal">
+                            ₹2,198
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            Shipping
+                        </span>
+
+                        <span id="cartShipping">
+                            FREE
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-divider"></div>
+
+
+                    <div class="summary-total">
+
+                        <span>
+                            Total
+                        </span>
+
+                        <strong id="cartTotal">
+                            ₹2,198
+                        </strong>
+
+                    </div>
+
+
+                    <a
+                        href="checkout.html"
+                        class="checkout-btn"
+                        id="checkoutBtn">
+                        Proceed to Checkout
+                    </a>
+
+
+                    <a
+                        href="index.html#products"
+                        class="continue-shopping">
+                        Continue Shopping
+                    </a>
+
+                </aside>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         LOGIN / REGISTER MODAL
+    ========================== -->
+
+    <div class="modal-overlay" id="authModal">
+
+        <div class="auth-modal">
+            <button
+                class="close-modal"
+                type="button"
+                onclick="closeModal()">
+                &times;
+            </button>
+
+            <!-- LOGIN -->
+
+            <div id="loginForm">
+                <h2>Welcome Back</h2>
+                <p>Login to your account</p>
+                
+                <form action="javascript:void(0);" method="POST" onsubmit="return false;">
+
+                    <label for="loginEmail">
+                        Email
+                    </label>
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        name="email"
+                        placeholder="Enter your email"
+                        required>
+
+                    <label for="loginPassword">
+                        Password
+                    </label>
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        name="password"
+                        placeholder="Enter your password"
+                        required>
+
+                    <button
+                        type="submit"
+                        class="auth-submit">
+                        Login
+                    </button>
+
+                </form>
+
+
+                <div class="switch-form">
+                    Don't have an account?
+
+                    <button
+                        type="button"
+                        onclick="openModal('register')">
+                        Register
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- REGISTRATION -->
+
+            <div id="registerForm">
+
+                <h2>Create Account</h2>
+
+                <p>
+                    Register for a new account
+                </p>
+
+                <form action="javascript:void(0);" method="POST" onsubmit="return false;">
+                    
+                    <label for="registerName">Full Name</label>
+                    <input
+                        type="text"
+                        id="registerName"
+                        name="name"
+                        placeholder="Enter your name"
+                        required>
+
+                    <label for="registerEmail">Email</label>
+                    <input
+                        type="email"
+                        id="registerEmail"
+                        name="email"
+                        placeholder="Enter your email"
+                        required>
+        
+                    <label for="registerPassword">Password</label>
+                    <input
+                        type="password"
+                        id="registerPassword"
+                        name="password"
+                        placeholder="Create a password"
+                        required>
+
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirm_password"
+                        placeholder="Confirm your password"
+                        required>
+                        
+                    <button
+                        type="submit"
+                        class="auth-submit">
+                        Register
+                    </button>
+
+                </form>
+
+
+                <div class="switch-form">
+                    Already have an account?
+
+                    <button
+                        type="button"
+                        onclick="openModal('login')">
+                        Login
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- JavaScript -->
+
+    <script src="js/images.js"></script>
+    <script src="js/api-client.js"></script>
+    <script src="js/script.js"></script>
+
+    <script>
+        function increaseCartQuantity(button) {
+            const input = button.parentElement.querySelector("input");
+            input.value = parseInt(input.value) + 1;
+            recalculateCart();
+        }
+
+        function decreaseCartQuantity(button) {
+            const input = button.parentElement.querySelector("input");
+            if (parseInt(input.value) > 1) {
+                input.value = parseInt(input.value) - 1;
+                recalculateCart();
+            }
+        }
+
+        function removeCartItem(button) {
+            const item = button.closest(".cart-item");
+            if (!item) return;
+
+            item.classList.add("removing");
+            setTimeout(() => {
+                item.remove();
+                recalculateCart();
+            }, 260);
+        }
+
+        function recalculateCart() {
+            const container = document.querySelector(".cart-items");
+            if (!container) return;
+
+            const items = container.querySelectorAll(".cart-item:not(.removing)");
+            let subtotal = 0;
+
+            items.forEach(item => {
+                const price = parseInt(item.dataset.price) || 0;
+                const qtyInput = item.querySelector("input");
+                const qty = qtyInput ? (parseInt(qtyInput.value) || 1) : 1;
+                subtotal += price * qty;
+            });
+
+            const subtotalEl = document.getElementById("cartSubtotal");
+            const shippingEl = document.getElementById("cartShipping");
+            const totalEl = document.getElementById("cartTotal");
+            const checkoutBtn = document.getElementById("checkoutBtn");
+
+            if (items.length === 0 || subtotal === 0) {
+                container.innerHTML = `
+                    <div class="empty-cart-state">
+                        <div class="empty-cart-icon">🛒</div>
+                        <h3 class="empty-cart-title">Your Shopping Bag is Empty</h3>
+                        <p class="empty-cart-desc">Looks like you haven't added anything to your cart yet. Explore our catalog to find items.</p>
+                        <a href="index.html#products" class="empty-cart-btn">Explore Catalog &rarr;</a>
+                    </div>
+                `;
+                if (subtotalEl) subtotalEl.textContent = "₹0";
+                if (shippingEl) shippingEl.textContent = "₹0";
+                if (totalEl) totalEl.textContent = "₹0";
+                if (checkoutBtn) {
+                    checkoutBtn.style.pointerEvents = "none";
+                    checkoutBtn.style.opacity = "0.45";
+                }
+                return;
+            }
+
+            const shipping = subtotal >= 999 ? 0 : 50;
+            const total = subtotal + shipping;
+
+            if (subtotalEl) subtotalEl.textContent = "₹" + subtotal.toLocaleString("en-IN");
+            if (shippingEl) shippingEl.textContent = shipping === 0 ? "FREE" : "₹" + shipping;
+            if (totalEl) totalEl.textContent = "₹" + total.toLocaleString("en-IN");
+            if (checkoutBtn) {
+                checkoutBtn.style.pointerEvents = "auto";
+                checkoutBtn.style.opacity = "1";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

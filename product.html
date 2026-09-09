@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShopEase - Product Details</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="header">
+
+        <a href="index.html" class="logo">ShopEase<span class="logo-dot">.</span></a>
+
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="index.html#products" class="active">Products</a>
+            <a href="orders.html"> Orders</a>
+            <a href="profile.html">My Profile</a>
+        </nav>
+
+        <div class="header-actions">
+
+            <button
+                class="login-btn"
+                type="button"
+                onclick="openModal('login')">
+                Login
+            </button>
+
+            <button
+                class="register-btn"
+                type="button"
+                onclick="openModal('register')">
+                Register
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         PRODUCT DETAILS
+    ========================== -->
+
+    <main class="product-detail-page">
+
+        <div class="product-detail-container">
+
+            <a href="index.html#products" class="back-link">&larr; Back to Products</a>
+
+            <div class="product-detail-grid">
+
+                <!-- Product Image -->
+                <div class="product-detail-visual">
+                    <div class="product-detail-image-wrap">
+                        <img id="pd-image" data-img="p1" alt="Product Image">
+                    </div>
+                </div>
+
+                <!-- Product Information -->
+                <div class="product-detail-info">
+
+                    <span class="product-category" id="pd-category">Category</span>
+
+                    <h1 id="pd-title">Product Name</h1>
+
+                    <div class="product-detail-price" id="pd-price">₹0</div>
+
+                    <p class="product-detail-description" id="pd-description">Product description</p>
+
+                    <!-- Quantity -->
+                    <div class="quantity-section">
+                        <label for="quantity">Quantity</label>
+                        <div class="quantity-control">
+                            <button type="button" aria-label="Decrease" onclick="decreaseQuantity()">−</button>
+                            <input type="number" id="quantity" name="quantity" value="1" min="1" readonly>
+                            <button type="button" aria-label="Increase" onclick="increaseQuantity()">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Add To Cart Form -->
+                    <form action="javascript:void(0);" method="POST" onsubmit="return false;" class="add-cart-form">
+                        <input type="hidden" name="product_id" id="pd-product-id" value="1">
+                        <input type="hidden" name="quantity" id="cartQuantity" value="1">
+                        <button type="submit" class="add-cart-btn" id="addToCartBtn">
+                            Add to Cart
+                        </button>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         FLOATING CART
+    ========================== -->
+
+    <a href="cart.html" class="floating-cart" aria-label="Shopping Cart">
+        <span class="cart-icon">🛒</span>
+    </a>
+
+
+    <!-- =========================
+         LOGIN / REGISTER MODAL
+    ========================== -->
+
+    
+    <div class="modal-overlay" id="authModal">
+
+        <div class="auth-modal">
+            <button
+                class="close-modal"
+                type="button"
+                onclick="closeModal()">
+                &times;
+            </button>
+
+            <!-- LOGIN -->
+
+            <div id="loginForm">
+                <h2>Welcome Back</h2>
+                <p>Login to your account</p>
+                
+                <form action="javascript:void(0);" method="POST" onsubmit="return false;">
+
+                    <label for="loginEmail">
+                        Email
+                    </label>
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        name="email"
+                        placeholder="Enter your email"
+                        required>
+
+                    <label for="loginPassword">
+                        Password
+                    </label>
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        name="password"
+                        placeholder="Enter your password"
+                        required>
+
+                    <button
+                        type="submit"
+                        class="auth-submit">
+                        Login
+                    </button>
+
+                </form>
+
+
+                <div class="switch-form">
+                    Don't have an account?
+
+                    <button
+                        type="button"
+                        onclick="openModal('register')">
+                        Register
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- REGISTRATION -->
+
+            <div id="registerForm">
+
+                <h2>Create Account</h2>
+
+                <p>
+                    Register for a new account
+                </p>
+
+                <form action="javascript:void(0);" method="POST" onsubmit="return false;">
+                    
+                    <label for="registerName">Full Name</label>
+                    <input
+                        type="text"
+                        id="registerName"
+                        name="name"
+                        placeholder="Enter your name"
+                        required>
+
+                    <label for="registerEmail">Email</label>
+                    <input
+                        type="email"
+                        id="registerEmail"
+                        name="email"
+                        placeholder="Enter your email"
+                        required>
+        
+                    <label for="registerPassword">Password</label>
+                    <input
+                        type="password"
+                        id="registerPassword"
+                        name="password"
+                        placeholder="Create a password"
+                        required>
+
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirm_password"
+                        placeholder="Confirm your password"
+                        required>
+                        
+                    <button
+                        type="submit"
+                        class="auth-submit">
+                        Register
+                    </button>
+
+                </form>
+
+
+                <div class="switch-form">
+                    Already have an account?
+
+                    <button
+                        type="button"
+                        onclick="openModal('login')">
+                        Login
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- JavaScript -->
+
+    <script src="js/images.js"></script>
+    <script src="js/api-client.js"></script>
+    <script src="js/script.js"></script>
+
+    <script src="js/products-data.js"></script>
+    <script src="js/product-detail.js"></script>
+
+    <script>
+
+        function increaseQuantity() {
+            const quantity =
+                document.getElementById("quantity");
+
+            const cartQuantity =
+                document.getElementById("cartQuantity");
+
+            quantity.value =
+                parseInt(quantity.value) + 1;
+
+            cartQuantity.value =
+                quantity.value;
+        }
+
+
+        function decreaseQuantity() {
+            const quantity =
+                document.getElementById("quantity");
+
+            const cartQuantity =
+                document.getElementById("cartQuantity");
+
+            if (parseInt(quantity.value) > 1) {
+
+                quantity.value =
+                    parseInt(quantity.value) - 1;
+
+                cartQuantity.value =
+                    quantity.value;
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

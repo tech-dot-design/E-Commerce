@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShopEase - Product Management</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- ADMIN HEADER -->
+
+    <header class="admin-header">
+        <div class="logo">ShopEase</div>
+        
+        <a href="../index.html" class="admin-home">View Store</a>
+    </header>
+
+    <!-- ADMIN LAYOUT -->
+
+    <div class="admin-layout">
+
+        <!-- SIDEBAR -->
+
+        <aside class="admin-sidebar">
+
+            <div class="sidebar-heading">ADMIN PANEL</div>
+
+            <nav class="admin-nav">
+                <a href="dashboard.html"><span>📊</span>
+                    Dashboard</a>
+
+                <a href="products.html" class="active"><span>📦</span>
+                    Product Management</a>
+
+                <a href="orders.html"><span>📑</span>
+                    Order Management</a>
+
+                <a href="customers.html"><span>👥</span>
+                    Customer Overview</a>
+
+            </nav>
+
+        </aside>
+
+        <!-- MAIN CONTENT -->
+
+        <main class="admin-main">
+
+            <!-- PAGE HEADING -->
+
+            <div class="admin-page-heading">
+                <div>
+                    <h1>Product Management</h1>
+                </div>
+            </div>
+
+            <!-- PRODUCT TABLE -->
+
+            <section class="product-management-section">
+
+                <div class="admin-section-heading">
+                    <h2>Products</h2>
+
+                    <button
+                        type="button"
+                        class="admin-add-btn"
+                        onclick="openProductModal('add')">
+                        + Add Product
+                    </button>
+                </div>
+
+                <div class="admin-table-container">
+                    <table class="admin-table product-admin-table"><thead><tr><th>ID</th><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Actions</th></tr></thead><tbody><tr><td colspan="6" style="text-align:center; padding:20px; color:#666;">Loading products...</td></tr></tbody>
+                    </table>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- ADD / EDIT PRODUCT MODAL -->
+
+    <div
+        class="product-modal-overlay"
+        id="productModal">
+
+        <div class="product-modal">
+
+            <button
+                type="button"
+                class="close-product-modal"
+                onclick="closeProductModal()">
+                &times;
+            </button>
+
+            <div class="product-modal-heading">
+                <p class="section-label">INVENTORY</p>
+                <h2 id="productModalTitle">Add Product</h2>
+                <p>Enter the product information below.</p>
+            </div>
+
+            <!-- ADD PRODUCT FORM -->
+
+            <form action="javascript:void(0);"
+                method="POST" onsubmit="return false;"
+                class="admin-product-form"
+                id="addProductForm">
+
+                <label for="productName">Product Name</label>
+                <input
+                    type="text"
+                    id="productName"
+                    name="product_name"
+                    placeholder="Enter product name"
+                    required>
+
+                <label for="productCategory">Category</label>
+                <select
+                    id="productCategory"
+                    name="category"
+                    required>
+
+                    <option value="">Select Category</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="fashion">Fashion</option>
+                    <option value="home">Home</option>
+                </select>
+
+                <label for="productPrice">Price</label>
+                <input
+                    type="number"
+                    id="productPrice"
+                    name="price"
+                    placeholder="Enter price"
+                    min="0"
+                    required>
+
+                <label for="productStock">Stock</label>
+                <input
+                    type="number"
+                    id="productStock"
+                    name="stock"
+                    placeholder="Enter stock quantity"
+                    min="0"
+                    required>
+
+                <label for="productImage">Product Image URL</label>
+                <input
+                    type="url"
+                    id="productImage"
+                    name="image"
+                    placeholder="Enter image URL">
+
+                <label for="productDescription">Description</label>
+                <textarea
+                    id="productDescription"
+                    name="description"
+                    placeholder="Enter product description"
+                    rows="4"
+                    required></textarea>
+
+                <button
+                    type="submit"
+                    class="admin-form-submit">
+                    Add Product
+                </button>
+            </form>
+
+            <!-- EDIT PRODUCT FORM -->
+
+            <form action="javascript:void(0);"
+                method="POST" onsubmit="return false;"
+                class="admin-product-form"
+                id="editProductForm"
+                style="display: none;">
+
+                <input
+                    type="hidden"
+                    name="product_id"
+                    value="1">
+
+                <label for="editProductName">Product Name</label>
+                <input
+                    type="text"
+                    id="editProductName"
+                    name="product_name"
+                    value="Wireless Headphones"
+                    required>
+
+                <label for="editProductCategory">Category</label>
+                <select
+                    id="editProductCategory"
+                    name="category"
+                    required>
+
+                    <option value="electronics" selected>Electronics</option>
+                    <option value="fashion">Fashion</option>
+                    <option value="home">Home</option>
+                </select>
+
+                <label for="editProductPrice">Price</label>
+                <input
+                    type="number"
+                    id="editProductPrice"
+                    name="price"
+                    value="1299"
+                    min="0"
+                    required>
+
+                <label for="editProductStock">Stock</label>
+                <input
+                    type="number"
+                    id="editProductStock"
+                    name="stock"
+                    value="25"
+                    min="0"
+                    required>
+
+                <label for="editProductImage">Product Image URL</label>
+                <input
+                    type="url"
+                    id="editProductImage"
+                    name="image"
+                    placeholder="Enter image URL">
+
+                <label for="editProductDescription">Description</label>
+                <textarea
+                    id="editProductDescription"
+                    name="description"
+                    rows="4"
+                    required>
+                    High-quality wireless headphones with clear sound.
+                </textarea>
+
+                <button
+                    type="submit"
+                    class="admin-form-submit">
+                    Update Product
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+
+    <script src="../js/images.js"></script>
+
+    <script>
+
+        function openProductModal(type) {
+
+            const modal = document.getElementById("productModal");
+            const addForm = document.getElementById("addProductForm");
+            const editForm = document.getElementById("editProductForm");
+            const title = document.getElementById("productModalTitle");
+
+            modal.classList.add("active");
+
+            if (type === "add") {
+                title.textContent = "Add Product";
+                addForm.style.display = "block";
+                editForm.style.display = "none";
+            }
+
+            else {
+                title.textContent = "Edit Product";
+                addForm.style.display = "none";
+                editForm.style.display = "block";
+            }
+        }
+
+        function closeProductModal() {
+            const modal = document.getElementById("productModal");
+            modal.classList.remove("active");
+        }
+
+        document.addEventListener("click", function(event) {
+                const modal = document.getElementById("productModal");
+                if (event.target === modal) {
+                    closeProductModal();
+                }
+            }
+        );
+
+    </script>
+
+    <script src="../js/api-client.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

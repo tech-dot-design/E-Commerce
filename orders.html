@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShopEase - Order History</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="header">
+
+        <a href="index.html" class="logo">ShopEase<span class="logo-dot">.</span></a>
+
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="index.html#products">Products</a>
+            <a href="orders.html" class="active">Orders</a>
+            <a href="profile.html">My Profile</a>
+        </nav>
+
+        <div class="header-actions">
+
+            <button class="login-btn" type="button" onclick="openModal('login')">
+                Login
+            </button>
+
+            <button class="register-btn" type="button" onclick="openModal('register')">
+                Register
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- =========================
+         ORDER HISTORY
+    ========================== -->
+
+    <main class="orders-page">
+
+        <div class="orders-container">
+
+            <div class="orders-heading">
+                <h1>My Orders</h1>
+                <p>View and manage your recent purchases</p>
+            </div>
+
+            <!-- Status Filter Bar -->
+            <div class="orders-filter-bar">
+                <button data-filter="all" type="button" class="order-filter-pill active" onclick="filterOrders('all', this)">
+                    All Orders (3)
+                </button>
+                <button data-filter="delivered" type="button" class="order-filter-pill" onclick="filterOrders('delivered', this)">
+                    Delivered (1)
+                </button>
+                <button data-filter="transit" type="button" class="order-filter-pill" onclick="filterOrders('shipped', this)">
+                    In Transit (1)
+                </button>
+                <button data-filter="processing" type="button" class="order-filter-pill" onclick="filterOrders('processing', this)">
+                    Processing (1)
+                </button>
+            </div>
+
+            <!-- =========================
+                 ORDER LIST
+            ========================== -->
+
+            <section class="orders-list" id="ordersList">
+
+                <!-- ORDER 1 -->
+                <article class="order-card" data-status="delivered">
+
+                    <div class="order-card-header">
+                        <div>
+                            <span class="order-label">Placed on 02 Sep 2026</span>
+                            <h3>#ORD1001</h3>
+                        </div>
+                        <div class="order-status delivered">
+                            <span class="status-dot-icon">✓</span> Delivered
+                        </div>
+                    </div>
+
+                    <!-- Products Preview -->
+                    <div class="order-items-preview">
+                        <div class="order-thumb-wrap">
+                            <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=300&q=80" data-img="p1" alt="Wireless Headphones">
+                            <span class="order-thumb-qty">1×</span>
+                        </div>
+                        <div class="order-thumb-wrap">
+                            <img src="images/running-shoes.jpg" data-img="p2" alt="Running Shoes">
+                            <span class="order-thumb-qty">1×</span>
+                        </div>
+                        <div class="order-items-text">
+                            <h4>Wireless Headphones, Running Shoes</h4>
+                            <span>2 items in this order</span>
+                        </div>
+                    </div>
+
+                    <div class="order-card-details">
+                        <div>
+                            <span>Items Count</span>
+                            <strong>2 Products</strong>
+                        </div>
+                        <div>
+                            <span>Payment Method</span>
+                            <strong>UPI / NetBanking</strong>
+                        </div>
+                        <div>
+                            <span>Total Amount</span>
+                            <strong class="order-total-val">₹2,248</strong>
+                        </div>
+                    </div>
+
+                    <div class="order-card-footer">
+                        <div class="order-actions-row">
+                            <a href="order-details.html" class="view-order-btn">View Details &rarr;</a>
+                        </div>
+                    </div>
+
+                </article>
+
+                <!-- ORDER 2 -->
+                <article class="order-card" data-status="shipped">
+
+                    <div class="order-card-header">
+                        <div>
+                            <span class="order-label">Placed on 28 Aug 2026</span>
+                            <h3>#ORD1000</h3>
+                        </div>
+                        <div class="order-status shipped">
+                            In Transit
+                        </div>
+                    </div>
+
+                    <!-- Products Preview -->
+                    <div class="order-items-preview">
+                        <div class="order-thumb-wrap">
+                            <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=300&q=80" data-img="p3" alt="Modern Table Lamp">
+                            <span class="order-thumb-qty">1×</span>
+                        </div>
+                        <div class="order-items-text">
+                            <h4>Modern Table Lamp</h4>
+                            <span>1 item in this order</span>
+                        </div>
+                    </div>
+
+                    <div class="order-card-details">
+                        <div>
+                            <span>Items Count</span>
+                            <strong>1 Product</strong>
+                        </div>
+                        <div>
+                            <span>Payment Method</span>
+                            <strong>Credit Card</strong>
+                        </div>
+                        <div>
+                            <span>Total Amount</span>
+                            <strong class="order-total-val">₹1,599</strong>
+                        </div>
+                    </div>
+
+                    <div class="order-card-footer">
+                        <div class="order-actions-row">
+                            <a href="order-details.html" class="view-order-btn">View Details &rarr;</a>
+                        </div>
+                    </div>
+
+                </article>
+
+                <!-- ORDER 3 -->
+                <article class="order-card" data-status="processing">
+
+                    <div class="order-card-header">
+                        <div>
+                            <span class="order-label">Placed on 25 Aug 2026</span>
+                            <h3>#ORD0999</h3>
+                        </div>
+                        <div class="order-status processing">
+                            Processing
+                        </div>
+                    </div>
+
+                    <!-- Products Preview -->
+                    <div class="order-items-preview">
+                        <div class="order-thumb-wrap">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=300&q=80" data-img="p4" alt="Smart Watch">
+                            <span class="order-thumb-qty">1×</span>
+                        </div>
+                        <div class="order-items-text">
+                            <h4>Sapphire Smart Watch</h4>
+                            <span>1 item in this order</span>
+                        </div>
+                    </div>
+
+                    <div class="order-card-details">
+                        <div>
+                            <span>Items Count</span>
+                            <strong>1 Product</strong>
+                        </div>
+                        <div>
+                            <span>Payment Method</span>
+                            <strong>UPI</strong>
+                        </div>
+                        <div>
+                            <span>Total Amount</span>
+                            <strong class="order-total-val">₹2,499</strong>
+                        </div>
+                    </div>
+
+                    <div class="order-card-footer">
+                        <div class="order-actions-row">
+                            <a href="order-details.html" class="view-order-btn">View Details &rarr;</a>
+                        </div>
+                    </div>
+
+                </article>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- =========================
+         FLOATING CART
+    ========================== -->
+
+    <a href="cart.html" class="floating-cart" aria-label="Shopping Cart">
+        <span class="cart-icon">
+            🛒
+        </span>
+    </a>
+
+    <!-- =========================
+         LOGIN / REGISTER MODAL
+    ========================== -->
+
+    <div class="modal-overlay" id="authModal">
+
+        <div class="auth-modal">
+            <button class="close-modal" type="button" onclick="closeModal()">
+                &times;
+            </button>
+
+            <!-- LOGIN -->
+
+            <div id="loginForm">
+                <h2>Welcome Back</h2>
+                <p>Login to your account</p>
+
+                <form action="login.php" method="POST">
+
+                    <label for="loginEmail">
+                        Email
+                    </label>
+                    <input type="email" id="loginEmail" name="email" placeholder="Enter your email" required>
+
+                    <label for="loginPassword">
+                        Password
+                    </label>
+                    <input type="password" id="loginPassword" name="password" placeholder="Enter your password"
+                        required>
+
+                    <button type="submit" class="auth-submit">
+                        Login
+                    </button>
+
+                </form>
+
+                <div class="switch-form">
+                    Don't have an account?
+
+                    <button type="button" onclick="openModal('register')">
+                        Register
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- REGISTRATION -->
+
+            <div id="registerForm">
+
+                <h2>Create Account</h2>
+
+                <p>
+                    Register for a new account
+                </p>
+
+                <form action="register.php" method="POST">
+
+                    <label for="registerName">Full Name</label>
+                    <input type="text" id="registerName" name="name" placeholder="Enter your name" required>
+
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" name="email" placeholder="Enter your email" required>
+
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" name="password" placeholder="Create a password"
+                        required>
+
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirm_password"
+                        placeholder="Confirm your password" required>
+
+                    <button type="submit" class="auth-submit">
+                        Register
+                    </button>
+
+                </form>
+
+                <div class="switch-form">
+                    Already have an account?
+
+                    <button type="button" onclick="openModal('login')">
+                        Login
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="js/images.js"></script>
+    <script src="js/api-client.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

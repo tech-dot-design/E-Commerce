@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShopEase - Customer Overview</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- ADMIN HEADER -->
+
+    <header class="admin-header">
+        <div class="logo">ShopEase</div>
+        
+        <a href="../index.html" class="admin-home">View Store</a>
+    </header>
+
+    <!-- ADMIN LAYOUT -->
+
+    <div class="admin-layout">
+
+        <!-- SIDEBAR -->
+
+        <aside class="admin-sidebar">
+
+            <div class="sidebar-heading">ADMIN PANEL</div>
+
+            <nav class="admin-nav">
+                <a href="dashboard.html"><span>📊</span>
+                    Dashboard</a>
+
+                <a href="products.html"><span>📦</span>
+                    Product Management</a>
+
+                <a href="orders.html"><span>📑</span>
+                    Order Management</a>
+
+                <a href="customers.html" class="active"><span>👥</span>
+                    Customer Overview</a>
+
+            </nav>
+
+        </aside>
+
+        <!-- MAIN CONTENT -->
+
+        <main class="admin-main">
+
+            <!-- PAGE HEADING -->
+
+            <div class="admin-page-heading">
+                <h1>Customer Overview</h1>
+                <p>View and monitor registered customer accounts.</p>
+            </div>
+
+            <!-- CUSTOMER SECTION -->
+
+            <section class="customer-management-section">
+
+                <div class="admin-section-heading">
+                    <h2>Registered Customers</h2>
+                </div>
+
+                <!-- CUSTOMER TABLE -->
+
+                <div class="admin-table-container">
+
+                    <table class="admin-table customer-admin-table"><thead><tr><th>Customer ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Registered Date</th><th>Orders</th></tr></thead><tbody><tr><td colspan="6" style="text-align:center; padding:20px; color:#666;">Loading customers...</td></tr></tbody>  
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="../js/api-client.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
